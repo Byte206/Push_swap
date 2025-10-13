@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gamorcil <gamorcil@42.fr>                  +#+  +:+       +#+        */
+/*   By: gamorcil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 16:33:39 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/13 16:34:07 by gamorcil         ###   ########.fr       */
+/*   Created: 2025/01/13 15:37:15 by gamorcil          #+#    #+#             */
+/*   Updated: 2025/01/13 15:50:50 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	*ft_memset(void *str, int a, size_t n)
 {
-	t_stack	*a;
-	t_stack	*b;
-	char		**nums;
+	size_t			x;
+	unsigned char	*str2;
 
-	if (check_errors(argc, argv))
-		return (1);
-	set_stack(&a, argv, argc);
-	return (0);
+	str2 = str;
+	x = 0;
+	while (x < n)
+	{
+		str2[x] = a;
+		x++;
+	}
+	return (str);
 }

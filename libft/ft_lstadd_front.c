@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gamorcil <gamorcil@42.fr>                  +#+  +:+       +#+        */
+/*   By: gamorcil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 16:33:39 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/13 16:34:07 by gamorcil         ###   ########.fr       */
+/*   Created: 2025/01/19 17:16:11 by gamorcil          #+#    #+#             */
+/*   Updated: 2025/01/19 18:10:37 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_stack	*a;
-	t_stack	*b;
-	char		**nums;
-
-	if (check_errors(argc, argv))
-		return (1);
-	set_stack(&a, argv, argc);
-	return (0);
+	new->next = *lst;
+	*lst = new;
 }

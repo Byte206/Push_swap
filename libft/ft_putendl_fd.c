@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gamorcil <gamorcil@42.fr>                  +#+  +:+       +#+        */
+/*   By: gamorcil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 16:33:39 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/13 16:34:07 by gamorcil         ###   ########.fr       */
+/*   Created: 2025/01/16 16:38:55 by gamorcil          #+#    #+#             */
+/*   Updated: 2025/01/16 16:41:54 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	ft_putendl_fd(char *s, int fd)
 {
-	t_stack	*a;
-	t_stack	*b;
-	char		**nums;
+	int	i;
 
-	if (check_errors(argc, argv))
-		return (1);
-	set_stack(&a, argv, argc);
-	return (0);
+	i = 0;
+	while (s[i] != '\0')
+	{
+		write (fd, &s[i], 1);
+		i++;
+	}
+	write (fd, "\n", 1);
 }

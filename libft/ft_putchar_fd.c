@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gamorcil <gamorcil@42.fr>                  +#+  +:+       +#+        */
+/*   By: gamorcil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 16:33:39 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/13 16:34:07 by gamorcil         ###   ########.fr       */
+/*   Created: 2025/01/16 16:16:26 by gamorcil          #+#    #+#             */
+/*   Updated: 2025/01/16 16:20:05 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	ft_putchar_fd(char c, int fd)
 {
-	t_stack	*a;
-	t_stack	*b;
-	char		**nums;
-
-	if (check_errors(argc, argv))
-		return (1);
-	set_stack(&a, argv, argc);
-	return (0);
+	write (fd, &c, 1);
 }

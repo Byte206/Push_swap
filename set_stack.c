@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   set_stack.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gamorcil <gamorcil@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 16:33:39 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/13 16:34:07 by gamorcil         ###   ########.fr       */
+/*   Created: 2025/10/13 18:07:23 by gamorcil          #+#    #+#             */
+/*   Updated: 2025/10/13 18:10:29 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
 
-int main(int argc, char **argv)
+#inlude "push_swap.h"
+
+void	set_stack(&a, char **argv,int argc)
 {
-	t_stack	*a;
-	t_stack	*b;
-	char		**nums;
+	long num;
+	int i;
 
-	if (check_errors(argc, argv))
-		return (1);
-	set_stack(&a, argv, argc);
-	return (0);
+	i = 1;
+	if (argc == 2)
+	{
+
+	}
 }

@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gamorcil <gamorcil@42.fr>                  +#+  +:+       +#+        */
+/*   By: gamorcil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 16:33:39 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/13 16:34:07 by gamorcil         ###   ########.fr       */
+/*   Created: 2025/01/19 17:16:42 by gamorcil          #+#    #+#             */
+/*   Updated: 2025/01/19 18:52:26 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_stack	*a;
-	t_stack	*b;
-	char		**nums;
+	int	i;
 
-	if (check_errors(argc, argv))
-		return (1);
-	set_stack(&a, argv, argc);
-	return (0);
+	i = (ft_lstsize(lst) - 1);
+	while (i > 0)
+	{
+		lst = lst->next;
+		i--;
+	}
+	return (lst);
 }
