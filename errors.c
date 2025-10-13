@@ -6,16 +6,16 @@
 /*   By: gamorcil <gamorcil@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 17:12:04 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/13 17:56:05 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/13 17:33:30 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int check_syntax(char **argv)
+int	check_syntax(char **argv)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 1;
 	while (argv[i])
@@ -28,7 +28,7 @@ int check_syntax(char **argv)
 			while (argv[i][j] == ' ')
 				j++;
 			if (!argv[i][j])
-				break;
+				break ;
 			if (argv[i][j] == '-' || argv[i][j] == '+')
 				j++;
 			if (!ft_isdigit(argv[i][j]))
@@ -56,4 +56,3 @@ int	check_errors(int argc, char **argv)
 	ft_printf("Nice arguments\n");
 	return (0);
 }
-

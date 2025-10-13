@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_stack.c                                        :+:      :+:    :+:   */
+/*   free_memory.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gamorcil <gamorcil@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 18:07:23 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/13 18:10:29 by gamorcil         ###   ########.fr       */
+/*   Created: 2025/10/13 21:07:28 by gamorcil          #+#    #+#             */
+/*   Updated: 2025/10/13 21:10:09 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
 
-void	set_stack(t_stack **a, char **argv,int argc)
+void	free_splitted(char **splitted)
 {
-	long num;
-	int i;
+	int	i;
 
-	i = 1;
-	if (argc == 2)
+	if (!splitted)
+		return ;
+	i = 0;
+	while (splitted[i])
 	{
-
+		free(splitted[i]);
+		i++;
 	}
+	free(splitted);
 }

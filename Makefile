@@ -21,7 +21,11 @@ FT_PRINTF_DIR = ft_printf
 
 # Archivos fuente
 SRCS = main.c \
-       errors.c
+       errors.c \
+	   set_list.c \
+	   ft_atol.c \
+	   set_stack.c \
+	   free_memory.c \
 
 OBJS = $(SRCS:.c=.o)
 

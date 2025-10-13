@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include "ft_printf/ft_printf.h"
 # include "libft/libft.h"
-
+# include <limits.h>
 
 typedef struct s_stack_node
 {
@@ -41,6 +41,14 @@ long	ft_atol(const char *str);
 
 //main
 int	check_errors(int argc, char **argv);
-void	set_stack(&a, char **argv,int argc);
+void	set_stack(t_stack **a, char **argv,int argc);
+
+//set_list.c
+long	*set_list(int argc, char **argv, int *num_count);
+int	process_argv(int argc, char **argv, long *list, int *num_count);
+int	count_numbers(int argc, char **argv);
+int	count_in_str(const char *str);
+void	free_splitted(char **splitted);
+int	process_splitted(char **splitted, long *list, int *index);
 
 #endif

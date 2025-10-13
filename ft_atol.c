@@ -15,8 +15,8 @@
 int	is_space(char c)
 {
 	if ((c >= 9 && c <= 13) || c == 32)
-		return 1;
-	return 0;
+		return (1);
+	return (0);
 }
 
 long	ft_atol(const char *str)
@@ -32,7 +32,7 @@ long	ft_atol(const char *str)
 		i++;
 	if (str[i] == '+')
 		i++;
-	else if(str[i] == '-')
+	else if (str[i] == '-')
 	{
 		sign = -1;
 		i++;
