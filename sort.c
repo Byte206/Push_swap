@@ -12,32 +12,23 @@
 
 #include "push_swap.h"
 
-t_node	*create_stack(long	*nbr_list, int	num_count)
+t_stack	*create_stack(long *nbr_list, int num_count)
 {
-	t_node	*head;
-	t_node	*prev;
-	t_node	*curr;
+	t_stack	*head;
+	t_stack	*prev;
+	t_stack	*curr;
 	int		i;
-	
+
 	head = NULL;
 	prev = NULL;
-	curr = NULL;
 	i = 0;
 	while (i < num_count)
 	{
-		curr = malloc(sizeof(t_node));
+		curr = malloc(sizeof(t_stack));
 		if (!curr)
-		{
-			while (head)
-			{
-				t_node *tmp;
-				tmp = head;
-				head = head->next;
-				free(tmp);
-			}
 			return (NULL);
-		}
-		curr->value = nbr_list[i];
+		curr->value = (int)nbr_list[i];
+		curr->index = 0;
 		curr->next = NULL;
 		curr->prev = prev;
 		if (prev)
@@ -50,7 +41,29 @@ t_node	*create_stack(long	*nbr_list, int	num_count)
 	return (head);
 }
 
-void	push_swap(long	*nbr_list, int	num_count, t_node	**a,t_node	**b)
+void	assign_index(t_stack *head)
+{
+	t_stack	*aux;
+	t_stack	*run;
+	size_t	idx;
+
+	aux = head;
+	while (aux)
+	{
+		idx = 0;
+		run = head;
+		while (run)
+		{
+			if (run->value < aux->value)
+				idx++;
+			run = run->next;
+		}
+		aux->index = idx;
+		aux = aux->next;
+	}
+}
+
+void	push_swap(long	*nbr_list, int	num_count, t_stack	**a,t_stack	**b)
 {
 	*a = create_stack(nbr_list, num_count);
 	*b = NULL;
@@ -59,5 +72,14 @@ void	push_swap(long	*nbr_list, int	num_count, t_node	**a,t_node	**b)
 	{
 		ft_printf("Error creating stack\n");
 		return ;
+	}
+	assign_index(*a);
+	if (num_count < 8)
+	{
+		sort_small(a, b, num_count);
+	}
+	else if (num_count > 7)
+	{
+
 	}
 }

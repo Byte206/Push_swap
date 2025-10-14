@@ -73,14 +73,10 @@ int main(int argc, char **argv)
 	nbr_list = set_list(argc - 1, argv + 1, &num_count);
 	if (!nbr_list)
 		return (1);
-	ft_printf("Numero de numeros:%d\n", num_count);
-	for (int i = 0; i < num_count; i++)
-		printf("%ld\n", nbr_list[i]);
 	sorted_status = is_sorted(nbr_list, num_count);
 	if (sorted_status == 2)
 	{
 		push_swap(nbr_list, num_count, &a, &b);
-		ft_printf("Need to sort\n");
 		return (0);
 	}
 	else if(sorted_status == 1)

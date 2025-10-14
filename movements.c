@@ -1,0 +1,109 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   movements.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gamorcil <gamorcil@42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/14 15:04:49 by gamorcil          #+#    #+#             */
+/*   Updated: 2025/10/14 15:36:27 by gamorcil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+void	push(t_stack **first, t_stack **second, char flag)
+{
+	t_stack	*tmp;
+
+	if (!first || !*second)
+		return ;
+	tmp = (*first)->next;
+	if (*second)
+	{
+		(*second)->prev = (*first);
+		(*first)->next = (*second);
+		(*second) = (*first);
+		(*first) = tmp;
+		if (tmp)
+			tmp->prev = NULL;
+	}
+	else
+	{
+		(*second) = (*first);
+		(*second)->next = NULL;
+		(*second)->prev = NULL;
+		(*first) = tmp;
+		if (tmp)
+			tmp->prev = NULL;
+	}
+	ft_printf("p%c\n", flag);
+}
+
+t_stack	*get_last(t_stack *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack->next)
+		stack = stack->next;
+	return (stack);
+}
+
+void	rotate(t_stack **stack, char flag)
+{
+	t_stack	*tmp;
+	t_stack	*last;
+
+	if (!stack || !*stack)
+		return ;
+	tmp = (*stack)->next;
+	if (tmp)
+	{
+		last = get_last(*stack);
+		last->next = (*stack);
+		(*stack)->next = NULL;
+		(*stack)->prev = last;
+		(*stack) = tmp;
+		(*stack)->prev = NULL;
+		if (flag == 'a' || flag == 'b')
+			ft_printf("r%c\n", flag);
+	}
+}
+
+void	swap(t_stack **stack, char flag)
+{
+	t_stack	*tmp;
+
+	if (!stack || !*stack)
+		return ;
+	if ((*stack)->next)
+	{
+		tmp = (*stack)->next;
+		if (tmp->next)
+		{
+			(*stack)->next = tmp->next;
+			tmp->next->prev = *stack;
+		}
+		else
+			(*stack)->next = NULL;
+		tmp->next = (*stack);
+		(*stack)->prev = aux;
+		(*stack) = tmp;
+		if (flag == 'a' || flag == 'b')
+			ft_printf("s%c\n", flag);
+	}
+}
+
+void	swap_swap(t_stack **first, t_stack **second)
+{
+	if ((*first)->next && (*second)->next)
+	{
+		swap(first, 'n');
+		swap(second, 'n');
+		ft_printf("ss\n");
+	}
+	else if ((*first)->next)
+		swap(first, 'a');
+	else if ((*second)->next)
+		swap(second, 'b');
+}
