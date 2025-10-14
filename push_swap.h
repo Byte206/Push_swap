@@ -18,19 +18,12 @@
 # include "libft/libft.h"
 # include <limits.h>
 
-typedef struct s_stack_node
+typedef struct s_stack
 {
-	int					value;
-	int					current_position;
-	int					final_index;
-	int					push_price;
-	bool				above_median;
-	bool				cheapest;
-	struct s_stack_node	*target_node;
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;
-}				t_stack;	
-
+	long	value;
+	struct s_stack *next;
+	struct s_stack *prev;
+}	t_stack;
 //Checkers
 int check_syntax(char **argv);
 
