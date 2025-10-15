@@ -17,7 +17,7 @@ void	rotate_rotate(t_stack **first, t_stack **second)
 	if ((*first)->next && (*second)->next)
 	{
 		rotate(first, 'n');
-		rotate(second, 'n')l
+		rotate(second, 'n');
 		ft_printf("rr");
 	}
 	else if ((*first)->next)
@@ -26,7 +26,7 @@ void	rotate_rotate(t_stack **first, t_stack **second)
 		rotate(second, 'b');
 }
 
-void	reverse_roate(t_stack **stack, char flag)
+void	reverse_rotate(t_stack **stack, char flag)
 {
 	t_stack	*tmp;
 	t_stack	*last;
@@ -50,12 +50,32 @@ void	reverse_reverse(t_stack **first, t_stack **second)
 {
 	if ((*first)->next && (*second)->next)
 	{
-		reverse_roate(first, 'n');
-		reverse_roate(second, 'n');
+		reverse_rotate(first, 'n');
+		reverse_rotate(second, 'n');
 		ft_printf("rrr");
 	}
 	else if ((*first)->next)
-		reverse_roate(first, 'a');
+		reverse_rotate(first, 'a');
 	else if ((*second)->next)
-		reverse_roate(second, 'a');
+		reverse_rotate(second, 'a');
+}
+
+t_stack	*get_max(t_stack *stack)
+{
+	long	max;
+	t_stack	*max_node;
+
+	if (!stack)
+		return (NULL);
+	max = LONG_MIN;
+	while (stack)
+	{
+		if (stack->nbr > max)
+		{
+			max = stack->nbr;
+			max_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (max_node);
 }

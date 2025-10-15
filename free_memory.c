@@ -26,3 +26,21 @@ void	free_splitted(char **splitted)
 	}
 	free(splitted);
 }
+
+void	free_stack(t_stack **stack)
+{
+	t_stack	*tmp;
+	t_stack	*current;
+
+	if (!stack)
+		return ;
+	current = *stack;
+	while (current)
+	{
+		tmp = current->next;
+		current->nbr = 0;
+		free(current);
+		current = tmp;
+	}
+	*stack = NULL;
+}

@@ -20,8 +20,12 @@
 
 typedef struct s_stack
 {
-	int				value;
-	size_t			index;
+	int				nbr;
+	int				index;
+	int				push_cost;
+	bool			above_median;
+	bool			cheapest;
+	struct s_stack	*target_node;
 	struct s_stack	*prev;
 	struct s_stack	*next;
 }					t_stack;
@@ -52,11 +56,13 @@ void	push_swap(long	*nbr_list, int	num_count, t_stack	**a,t_stack	**b);
 t_stack	*create_stack(long	*nbr_list, int	num_count);
 void	assign_index(t_stack *head);
 
-//sort_two
-void	sort_two(t_stack **a, t_stack **b, char flag);
+//free
+void	free_stack(t_stack **stack);
+void	free_splitted(char **splitted);
+
 
 //sort_three
-void	sort_three(t_stack **a, t_stack **b, char flag, int num_count);
+void	sort_three(t_stack **a);
 
 //sort_small
 void	sort_small(t_stack **a, t_stack **b, int num_count);
@@ -65,10 +71,12 @@ void	sort_small(t_stack **a, t_stack **b, int num_count);
 //MOVEMENTS
 void	swap(t_stack **stack, char flag); // swap a && swap b
 void	swap_swap(t_stack **first, t_stack **second); // ss
-void	push(t_stack **first, t_stack **second, char flag); // push a && push b
+void	push(t_stack **dst, t_stack **src, char flag) // push a && push b
 void	rotate(t_stack **stack, char flag); // rotate a && rotate b
 void	rotate_rotate(t_stack **first, t_stack **second); // rr
-void	reverse_roate(t_stack **stack, char flag); // reverse rotate
+void	reverse_rotate(t_stack **stack, char flag); // reverse rotate
 void	reverse_reverse(t_stack **first, t_stack **second); // rrr
+t_stack	*get_last(t_stack *stack);
+t_stack	*get_max(t_stack *stack);
 
 #endif

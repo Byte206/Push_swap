@@ -12,23 +12,32 @@
 
 #include "push_swap.h"
 
-void	push(t_stack **dst, t_stack **src, char flag)
+void	push(t_stack **first, t_stack **second, char flag)
 {
 	t_stack	*tmp;
 
-	if (!src || !*src)
+	if (!first || !*second)
 		return ;
-	tmp = *src;
-	*src = (*src)->next;
-	if (*src)
-		(*src)->prev = NULL;
-	tmp->next = *dst;
-	if (*dst)
-		(*dst)->prev = tmp;
-	tmp->prev = NULL;
-	*dst = tmp;
-	if (flag == 'a' || flag == 'b')
-		ft_printf("p%c\n", flag);
+	tmp = (*first)->next;
+	if (*second)
+	{
+		(*second)->prev = (*first);
+		(*first)->next = (*second);
+		(*second) = (*first);
+		(*first) = tmp;
+		if (tmp)
+			tmp->prev = NULL;
+	}
+	else
+	{
+		(*second) = (*first);
+		(*second)->next = NULL;
+		(*second)->prev = NULL;
+		(*first) = tmp;
+		if (tmp)
+			tmp->prev = NULL;
+	}
+	ft_printf("p%c\n", flag);
 }
 
 t_stack	*get_last(t_stack *stack)
@@ -67,8 +76,6 @@ void	swap(t_stack **stack, char flag)
 
 	if (!stack || !*stack)
 		return ;
-	if (!(*stack)->next)
-		ft_printf("solo un nodo\n");
 	if ((*stack)->next)
 	{
 		tmp = (*stack)->next;
@@ -83,6 +90,7 @@ void	swap(t_stack **stack, char flag)
 		tmp->prev = NULL;
 		(*stack)->prev = tmp;
 		(*stack) = tmp;
+		ft_printf("llego aqui");
 		if (flag == 'a' || flag == 'b')
 			ft_printf("s%c\n", flag);
 	}

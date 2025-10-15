@@ -12,55 +12,47 @@
 
 #include "push_swap.h"
 
+void	append_node(t_stack **stack, int num)
+{
+	t_stack *node;
+	t_stack *last_node;
+
+	if (!stack)
+		return ;
+	node = malloc(sizeof(t_stack));
+	if (!node)
+		return ;
+	node->next = NULL;
+	node->nbr = num;
+	node->cheapest = 0;
+	if (!(*stack))
+	{
+		*stack = node;
+		node->prev = NULL;
+	}
+	else
+	{
+		last_node = get_last(*stack);
+		last_node->next = node;
+		node->prev = last_node;
+	}
+}
+
 t_stack	*create_stack(long *nbr_list, int num_count)
 {
-	t_stack	*head;
-	t_stack	*prev;
-	t_stack	*curr;
+	t_stack	*stack;
 	int		i;
 
-	head = NULL;
-	prev = NULL;
+	if (!nbr_list || num_count <= 0)
+		return (NULL);
+	stack = NULL;
 	i = 0;
 	while (i < num_count)
 	{
-		curr = malloc(sizeof(t_stack));
-		if (!curr)
-			return (NULL);
-		curr->value = (int)nbr_list[i];
-		curr->index = 0;
-		curr->next = NULL;
-		curr->prev = prev;
-		if (prev)
-			prev->next = curr;
-		else
-			head = curr;
-		prev = curr;
+		append_node(&stack, (int)nbr_list[i]);
 		i++;
 	}
-	return (head);
-}
-
-void	assign_index(t_stack *head)
-{
-	t_stack	*aux;
-	t_stack	*run;
-	size_t	idx;
-
-	aux = head;
-	while (aux)
-	{
-		idx = 0;
-		run = head;
-		while (run)
-		{
-			if (run->value < aux->value)
-				idx++;
-			run = run->next;
-		}
-		aux->index = idx;
-		aux = aux->next;
-	}
+	return (stack);
 }
 
 void	push_swap(long	*nbr_list, int	num_count, t_stack	**a,t_stack	**b)
@@ -73,13 +65,16 @@ void	push_swap(long	*nbr_list, int	num_count, t_stack	**a,t_stack	**b)
 		ft_printf("Error creating stack\n");
 		return ;
 	}
-	assign_index(*a);
-	if (num_count < 8)
+	if (num_count == 2)
 	{
-		sort_small(a, b, num_count);
+		swap(a, 'a');
 	}
-	else if (num_count > 7)
+	else if (num_count == 3)
 	{
-
+		sort_three(a);
 	}
+	else
+		sort_everything(a, b, num_count);
+	free_stack(a);
+	return ;
 }

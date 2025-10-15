@@ -27,10 +27,9 @@ SRCS = main.c \
 	   set_stack.c \
 	   free_memory.c \
 	   sort.c \
-	   sort_two.c \
-	   sort_small.c \
 	   sort_three.c \
 	   movements.c \
+	   movements_utils.c \
 
 
 OBJS = $(SRCS:.c=.o)
