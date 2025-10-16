@@ -17,15 +17,14 @@
 # include "ft_printf/ft_printf.h"
 # include "libft/libft.h"
 # include <limits.h>
-# include <stdbool.h>
 
 typedef struct s_stack
 {
 	int				nbr;
 	int				index;
 	int				push_cost;
-	bool			above_median;
-	bool			cheapest;
+	int				above_median;
+	int				cheapest;
 	struct s_stack	*target_node;
 	struct s_stack	*prev;
 	struct s_stack	*next;
@@ -66,7 +65,7 @@ void		init_nodes_b(t_stack *a, t_stack *b);
 void		append_node(t_stack **stack, int num);
 long		*set_list(int argc, char **argv, int *num_count);
 void		set_cheapest(t_stack *stack);
-void		sort_everything(t_stack **a, t_stack **b, int num_count);
+void		sort_everything(t_stack **a, t_stack **b);
 long		ft_atol(const char *str);
 t_stack		*get_last(t_stack *stack);
 t_stack		*create_stack(long *nbr_list, int num_count);

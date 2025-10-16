@@ -64,7 +64,7 @@ void	set_cheapest(t_stack *stack)
 		}
 		stack = stack->next;
 	}
-	cheapest_node->cheapest = true;
+	cheapest_node->cheapest = 1;
 }
 
 t_stack	*get_cheapest(t_stack *stack)

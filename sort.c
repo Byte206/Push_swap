@@ -73,7 +73,7 @@ void	push_swap(long	*nbr_list, int num_count, t_stack	**a, t_stack	**b)
 		sort_three(a);
 	}
 	else
-		sort_everything(a, b, num_count);
+		sort_everything(a, b);
 	free_stack(a);
 	return ;
 }

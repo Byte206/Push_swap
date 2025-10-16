@@ -36,7 +36,7 @@ int	stack_sorted(t_stack *stack)
 	return (1);
 }
 
-void	sort_everything(t_stack **a, t_stack **b, int num_count)
+void	sort_everything(t_stack **a, t_stack **b)
 {
 	int	len_a;
 

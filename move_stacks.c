@@ -42,7 +42,7 @@ void	a_to_b(t_stack **a, t_stack **b)
 		&& cheapest_node->target_node->above_median)
 	{
 		while (*b != cheapest_node->target_node
-		&& *a != cheapest_node)
+			&& *a != cheapest_node)
 			rotate_rotate(a, b);
 		current_index(*a);
 		current_index(*b);
