@@ -20,7 +20,7 @@ void	sort_three(t_stack **a)
 	if (biggest_node == *a)
 		rotate(a, 'a');
 	else if ((*a)->next == biggest_node)
-		reverse_rotate(a, 'a');
+		reverse_rotate(a, 'a', 1);
 	if ((*a)->nbr > (*a)->next->nbr)
 		swap(a, 'a');
 }

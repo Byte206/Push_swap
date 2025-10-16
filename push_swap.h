@@ -6,7 +6,7 @@
 /*   By: gamorcil <gamorcil@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 16:34:20 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/13 16:34:22 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/16 15:03:27 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "ft_printf/ft_printf.h"
 # include "libft/libft.h"
 # include <limits.h>
+# include <stdbool.h>
 
 typedef struct s_stack
 {
@@ -49,7 +50,7 @@ void		a_to_b(t_stack **a, t_stack **b);
 void		prep_push(t_stack **stack, t_stack *top_node, char flag);
 void		b_to_a(t_stack **a, t_stack **b);
 void		rotate_rotate(t_stack **a, t_stack **b);
-void		reverse_rotate(t_stack **stack, char flag);
+void		reverse_rotate(t_stack **stack, char flag, int print);
 void		reverse_reverse(t_stack **a, t_stack **b);
 void		push(t_stack **dst, t_stack **src, char flag);
 void		rotate(t_stack **stack, char flag);

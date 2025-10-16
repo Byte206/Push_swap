@@ -18,7 +18,7 @@ void	rotate_rotate(t_stack **a, t_stack **b)
 	{
 		rotate(a, 'n');
 		rotate(b, 'n');
-		ft_printf("rr");
+		ft_printf("rr\n");
 	}
 	else if ((*a)->next)
 		rotate(a, 'a');
@@ -26,7 +26,7 @@ void	rotate_rotate(t_stack **a, t_stack **b)
 		rotate(b, 'b');
 }
 
-void	reverse_rotate(t_stack **stack, char flag)
+void	reverse_rotate(t_stack **stack, char flag, int print)
 {
 	t_stack	*last;
 
@@ -38,7 +38,7 @@ void	reverse_rotate(t_stack **stack, char flag)
 	last->prev = NULL;
 	(*stack)->prev = last;
 	(*stack) = last;
-	if (flag == 'a' || flag == 'b')
+	if ((flag == 'a' || flag == 'b') && print == 1)
 		ft_printf("rr%c\n", flag);
 }
 
@@ -46,12 +46,12 @@ void	reverse_reverse(t_stack **a, t_stack **b)
 {
 	if ((*a)->next && (*b)->next)
 	{
-		reverse_rotate(a, 'n');
-		reverse_rotate(b, 'n');
-		ft_printf("rrr");
+		reverse_rotate(a, 'n', 0);
+		reverse_rotate(b, 'n', 0);
+		ft_printf("rrr\n");
 	}
 	else if ((*a)->next)
-		reverse_rotate(a, 'a');
+		reverse_rotate(a, 'a', 1);
 	else if ((*b)->next)
-		reverse_rotate(b, 'b');
+		reverse_rotate(b, 'b', 1);
 }

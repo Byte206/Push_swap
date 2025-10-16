@@ -21,14 +21,14 @@ void	prep_push(t_stack **stack, t_stack *top_node, char flag)
 			if (top_node->above_median)
 				rotate(stack, 'a');
 			else
-				reverse_rotate(stack, 'a');
+				reverse_rotate(stack, 'a', 1);
 		}
 		else if (flag == 'b')
 		{
 			if (top_node->above_median)
 				rotate(stack, 'b');
 			else
-				reverse_rotate(stack, 'b');
+				reverse_rotate(stack, 'b', 1);
 		}
 	}
 }
@@ -41,7 +41,11 @@ void	a_to_b(t_stack **a, t_stack **b)
 	if (cheapest_node->above_median
 		&& cheapest_node->target_node->above_median)
 	{
-		rotate_rotate(a, b);
+		while (*b != cheapest_node->target_node
+		&& *a != cheapest_node)
+			rotate_rotate(a, b);
+		current_index(*a);
+		current_index(*b);
 	}
 	else if (!(cheapest_node->above_median)
 		&& !(cheapest_node->target_node->above_median))

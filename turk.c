@@ -19,7 +19,7 @@ void	sort_min(t_stack **a)
 		if (get_min(*a)->above_median)
 			rotate(a, 'a');
 		else
-			reverse_rotate(a, 'a');
+			reverse_rotate(a, 'a', 1);
 	}
 }
 
@@ -40,7 +40,7 @@ void	sort_everything(t_stack **a, t_stack **b, int num_count)
 {
 	int	len_a;
 
-	len_a = num_count;
+	len_a = get_stack_len(*a);
 	if (len_a-- > 3 && !stack_sorted(*a))
 		push(b, a, 'b');
 	if (len_a-- > 3 && !stack_sorted(*a))

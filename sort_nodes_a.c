@@ -36,6 +36,10 @@ void	set_target_a(t_stack *a, t_stack *b)
 			a->target_node = get_max(b);
 		else
 			a->target_node = target_node;
+		/*if (a->target_node)
+    		ft_printf("Target de %d es: %d\n", a->nbr, a->target_node->nbr);
+		else
+    		ft_printf("Target de %d es: NULL\n", a->nbr);  */
 		a = a->next;
 	}
 }
@@ -56,6 +60,7 @@ void	get_cost_a(t_stack *a, t_stack *b)
 			a->push_cost += a->target_node->index;
 		else
 			a->push_cost += len_b - (a->target_node->index);
+		//ft_printf("Costo de %d: %d\n", a->nbr, a->push_cost);
 		a = a->next;
 	}
 }
