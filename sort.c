@@ -14,8 +14,8 @@
 
 void	append_node(t_stack **stack, int num)
 {
-	t_stack *node;
-	t_stack *last_node;
+	t_stack	*node;
+	t_stack	*last_node;
 
 	if (!stack)
 		return ;
@@ -55,11 +55,10 @@ t_stack	*create_stack(long *nbr_list, int num_count)
 	return (stack);
 }
 
-void	push_swap(long	*nbr_list, int	num_count, t_stack	**a,t_stack	**b)
+void	push_swap(long	*nbr_list, int num_count, t_stack	**a, t_stack	**b)
 {
 	*a = create_stack(nbr_list, num_count);
 	*b = NULL;
-
 	if (!*a)
 	{
 		ft_printf("Error creating stack\n");

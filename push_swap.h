@@ -57,17 +57,17 @@ void	reverse_rotate(t_stack **stack, char flag);
 void	reverse_reverse(t_stack **a, t_stack **b);
 
 //movements.c
-void	push(t_stack **dst, t_stack **src, char flag);
-t_stack	*get_last(t_stack *stack);
-void	rotate(t_stack **stack, char flag);
-void	swap(t_stack **stack, char flag);
-void	swap_swap(t_stack **a, t_stack **b);
+void		push(t_stack **dst, t_stack **src, char flag);
+t_stack		*get_last(t_stack *stack);
+void		rotate(t_stack **stack, char flag);
+void		swap(t_stack **stack, char flag);
+void		swap_swap(t_stack **a, t_stack **b);
 
 //set_list.c
-int	count_in_str(const char *str);
-int	count_numbers(int argc, char **argv);
-int	process_splitted(char **splitted, long *list, int *index);
-int	process_argv(int argc, char **argv, long *list, int *num_count);
+int		count_in_str(const char *str);
+int		count_numbers(int argc, char **argv);
+int		process_splitted(char **splitted, long *list, int *index);
+int		process_argv(int argc, char **argv, long *list, int *num_count);
 long	*set_list(int argc, char **argv, int *num_count);
 
 //sort_nodes_a.c
@@ -84,21 +84,20 @@ void	init_nodes_b(t_stack *a, t_stack *b);
 void	sort_three(t_stack **a);
 
 //sort.c
-void	append_node(t_stack **stack, int num);
-t_stack	*create_stack(long *nbr_list, int num_count);
-void	push_swap(long	*nbr_list, int	num_count, t_stack	**a,t_stack	**b);
+void		append_node(t_stack **stack, int num);
+t_stack		*create_stack(long *nbr_list, int num_count);
+void		push_swap(long	*nbr_list, int	num_count, t_stack	**a,t_stack	**b);
 
 
 //stack_utils.c
-int	get_stack_len(t_stack *stack);
-t_stack	*get_max(t_stack *stack);
-void	set_cheapest(t_stack *stack);
-t_stack	*get_cheapest(t_stack *stack);
-t_stack	*get_min(t_stack *a);
+int			get_stack_len(t_stack *stack);
+t_stack		*get_max(t_stack *stack);
+void		set_cheapest(t_stack *stack);
+t_stack		*get_cheapest(t_stack *stack);
+t_stack		*get_min(t_stack *a);
 
 //turk.c
-int	stack_sorted(t_stack *stack);
-void	sort_everything(t_stack **a, t_stack **b, int num_count);
-
+int			stack_sorted(t_stack *stack);
+void		sort_everything(t_stack **a, t_stack **b, int num_count);
 
 #endif

@@ -26,28 +26,21 @@ void	rotate_rotate(t_stack **a, t_stack **b)
 		rotate(b, 'b');
 }
 
-void reverse_rotate(t_stack **stack, char flag)
+void	reverse_rotate(t_stack **stack, char flag)
 {
-    t_stack *last;
-    
-    if (!stack || !*stack || !(*stack)->next)
-        return;
-    
-    last = get_last(*stack);
-    
-    // Desconectar el último nodo
-    last->prev->next = NULL;
-    
-    // Mover el último al principio
-    last->next = (*stack);
-    last->prev = NULL;
-    (*stack)->prev = last;
-    (*stack) = last;
-    
-    if (flag == 'a' || flag == 'b')
-        ft_printf("rr%c\n", flag);
-}
+	t_stack	*last;
 
+	if (!stack || !*stack || !(*stack)->next)
+		return ;
+	last = get_last(*stack);
+	last->prev->next = NULL;
+	last->next = (*stack);
+	last->prev = NULL;
+	(*stack)->prev = last;
+	(*stack) = last;
+	if (flag == 'a' || flag == 'b')
+		ft_printf("rr%c\n", flag);
+}
 
 void	reverse_reverse(t_stack **a, t_stack **b)
 {
@@ -62,4 +55,3 @@ void	reverse_reverse(t_stack **a, t_stack **b)
 	else if ((*b)->next)
 		reverse_rotate(b, 'b');
 }
-

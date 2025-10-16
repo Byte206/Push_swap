@@ -13,9 +13,9 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-int	check_repeated(long *nbr_list,int	num_count)
+int	check_repeated(long *nbr_list, int num_count)
 {
-	int i;
+	int	i;
 	int	j;
 
 	i = 0;
@@ -36,7 +36,6 @@ int	check_repeated(long *nbr_list,int	num_count)
 	return (0);
 }
 
-
 int	is_sorted(long	*nbr_list, int num_count)
 {
 	int	i;
@@ -48,23 +47,20 @@ int	is_sorted(long	*nbr_list, int num_count)
 	{
 		if (nbr_list[i] > nbr_list[i + 1])
 		{
-			//ft_printf("Not sorted\n");
 			return (2);
 		}
 		i++;
 	}
-	//ft_printf("Already sorted\n");
 	return (0);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
 	int		num_count;
 	int		sorted_status;
 	long	*nbr_list;
-
 
 	num_count = 0;
 	nbr_list = NULL;
@@ -79,17 +75,16 @@ int main(int argc, char **argv)
 		push_swap(nbr_list, num_count, &a, &b);
 		return (0);
 	}
-	else if(sorted_status == 1)
+	else if (sorted_status == 1)
 	{
 		free(nbr_list);
 		return (1);
 	}
-	else 
+	else
 	{
 		ft_printf("Already sorted\n");
-		free(nbr_list);	
+		free(nbr_list);
 		return (0);
 	}
-	//set_stack(&a, argv, argc);
 	return (0);
 }

@@ -27,12 +27,11 @@ void	prep_push(t_stack **stack, t_stack *top_node, char flag)
 		{
 			if (top_node->above_median)
 				rotate(stack, 'b');
-			else 
+			else
 				reverse_rotate(stack, 'b');
 		}
 	}
 }
-
 
 void	a_to_b(t_stack **a, t_stack **b)
 {

@@ -14,8 +14,8 @@
 
 void	set_target_b(t_stack *a, t_stack *b)
 {
-	t_stack *current_a;
-	t_stack *target_node;
+	t_stack	*current_a;
+	t_stack	*target_node;
 	long	best_index;
 
 	while (b)
@@ -39,7 +39,6 @@ void	set_target_b(t_stack *a, t_stack *b)
 		b = b->next;
 	}
 }
-
 
 void	init_nodes_b(t_stack *a, t_stack *b)
 {

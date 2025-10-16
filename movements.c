@@ -40,27 +40,22 @@ t_stack	*get_last(t_stack *stack)
 	return (stack);
 }
 
-void rotate(t_stack **stack, char flag)
+void	rotate(t_stack **stack, char flag)
 {
-    t_stack *first;
-    t_stack *last;
-    
-    if (!stack || !*stack || !(*stack)->next)
-        return ;
-    
-    first = *stack;
-    last = get_last(*stack);
-    
-    // El primer nodo se convierte en el último
-    *stack = first->next;        // El segundo nodo es ahora el primero
-    (*stack)->prev = NULL;       // El nuevo primero no tiene prev
-    
-    first->next = NULL;          // El antiguo primero ahora es último
-    first->prev = last;          // Su prev apunta al antiguo último
-    last->next = first;          // El antiguo último apunta al nuevo último
-    
-    if (flag == 'a' || flag == 'b')
-        ft_printf("r%c\n", flag);
+	t_stack	*first;
+	t_stack	*last;
+
+	if (!stack || !*stack || !(*stack)->next)
+		return ;
+	first = *stack;
+	last = get_last(*stack);
+	*stack = first->next;
+	(*stack)->prev = NULL;
+	first->next = NULL;
+	first->prev = last;
+	last->next = first;
+	if (flag == 'a' || flag == 'b')
+		ft_printf("r%c\n", flag);
 }
 
 void	swap(t_stack **stack, char flag)

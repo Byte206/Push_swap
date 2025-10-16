@@ -83,7 +83,7 @@ t_stack	*get_cheapest(t_stack *stack)
 t_stack	*get_min(t_stack *stack)
 {
 	long	min;
-	t_stack *min_node;
+	t_stack	*min_node;
 
 	if (!stack)
 		return (NULL);

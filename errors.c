@@ -53,6 +53,5 @@ int	check_errors(int argc, char **argv)
 		ft_printf("Syntax Error\n");
 		return (1);
 	}
-	//ft_printf("Nice arguments\n");
 	return (0);
 }
