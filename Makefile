@@ -22,20 +22,18 @@ FT_PRINTF_DIR = ft_printf
 # Archivos fuente
 SRCS = main.c \
        errors.c \
-	   set_list.c \
-	   ft_atol.c \
-	   free_memory.c \
-	   sort.c \
-	   sort_three.c \
-	   movements.c \
-	   movements_utils.c \
-	   sort_nodes_a.c \
-	   sort_nodes_b.c \
-	   turk.c \
-	   stack_utils.c \
-	   move_stacks.c \
-	   stack_utils.c \
-
+       set_list.c \
+       ft_atol.c \
+       free_memory.c \
+       sort.c \
+       sort_three.c \
+       movements.c \
+       movements_utils.c \
+       sort_nodes_a.c \
+       sort_nodes_b.c \
+       turk.c \
+       stack_utils.c \
+       move_stacks.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -79,15 +77,14 @@ fclean: clean
 # Recompilar todo
 re: fclean all
 
-.PHONY: all clean fclean re
-	# Añade esto a tu Makefile
+.PHONY: all clean fclean re debug force
 
 # Regla para debug (sin flags de 42, con -g para gdb)
 debug: CFLAGS = -g
 debug: fclean $(NAME)
 	@echo "Compiled in DEBUG mode (no -Wall -Wextra -Werror, with -g)"
 
-# O si quieres una regla "force" que compile directamente sin limpiar
+# Regla "force" para compilar directamente sin limpiar
 force:
 	$(CC) -g $(INCLUDES) $(SRCS) $(LIBFT) $(FT_PRINTF) -o $(NAME)
 	@echo "Force compiled in DEBUG mode"
