@@ -59,7 +59,6 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 	int		num_count;
-	int		sorted_status;
 	long	*nbr_list;
 
 	num_count = 0;
@@ -69,22 +68,16 @@ int	main(int argc, char **argv)
 	nbr_list = set_list(argc - 1, argv + 1, &num_count);
 	if (!nbr_list)
 		return (1);
-	sorted_status = is_sorted(nbr_list, num_count);
-	if (sorted_status == 2)
+	if (is_sorted(nbr_list, num_count) == 2)
 	{
 		push_swap(nbr_list, num_count, &a, &b);
 		return (0);
 	}
-	else if (sorted_status == 1)
+	else if (is_sorted(nbr_list, num_count) == 1)
 	{
 		free(nbr_list);
 		return (1);
 	}
-	else
-	{
-		ft_printf("Already sorted\n");
-		free(nbr_list);
-		return (0);
-	}
+	free(nbr_list);
 	return (0);
 }

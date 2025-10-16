@@ -30,6 +30,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+int			is_space(char c);
 int			check_syntax(char **argv);
 int			check_errors(int argc, char **argv);
 int			check_errors(int argc, char **argv);
@@ -41,6 +42,7 @@ int			process_splitted(char **splitted, long *list, int *index);
 int			process_splitted(char **splitted, long *list, int *index);
 int			get_stack_len(t_stack *stack);
 int			stack_sorted(t_stack *stack);
+void		sort_three(t_stack **a);
 void		free_splitted(char **splitted);
 void		free_stack(t_stack **stack);
 void		a_to_b(t_stack **a, t_stack **b);
@@ -61,7 +63,7 @@ void		set_target_b(t_stack *a, t_stack *b);
 void		init_nodes_b(t_stack *a, t_stack *b);
 void		init_nodes_b(t_stack *a, t_stack *b);
 void		append_node(t_stack **stack, int num);
-void		push_swap(long	*nbr_list, int num_count, t_stack	**a, t_stack	**b);
+long		*set_list(int argc, char **argv, int *num_count);
 void		set_cheapest(t_stack *stack);
 void		sort_everything(t_stack **a, t_stack **b, int num_count);
 long		ft_atol(const char *str);
@@ -70,5 +72,6 @@ t_stack		*create_stack(long *nbr_list, int num_count);
 t_stack		*get_max(t_stack *stack);
 t_stack		*get_cheapest(t_stack *stack);
 t_stack		*get_min(t_stack *a);
+void		push_swap(long	*nbr_list, int num_count, t_stack **a, t_stack **b);
 
 #endif
