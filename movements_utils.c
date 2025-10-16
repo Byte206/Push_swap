@@ -12,70 +12,54 @@
 
 #include "push_swap.h"
 
-void	rotate_rotate(t_stack **first, t_stack **second)
+void	rotate_rotate(t_stack **a, t_stack **b)
 {
-	if ((*first)->next && (*second)->next)
+	if ((*a)->next && (*b)->next)
 	{
-		rotate(first, 'n');
-		rotate(second, 'n');
+		rotate(a, 'n');
+		rotate(b, 'n');
 		ft_printf("rr");
 	}
-	else if ((*first)->next)
-		rotate(first, 'a');
-	else if ((*second)->next)
-		rotate(second, 'b');
+	else if ((*a)->next)
+		rotate(a, 'a');
+	else if ((*b)->next)
+		rotate(b, 'b');
 }
 
-void	reverse_rotate(t_stack **stack, char flag)
+void reverse_rotate(t_stack **stack, char flag)
 {
-	t_stack	*tmp;
-	t_stack	*last;
-
-	if (!stack || !*stack)
-		return ;
-	tmp = (*stack)->next;
-	if (tmp)
-	{
-		last = get_last(*stack);
-		last->next = (*stack);
-		(*stack)->prev = last;
-		last->prev->next = NULL;
-		(*stack) = last;
-		if (flag == 'a' || flag == 'b')
-			ft_printf("rr%c\n", flag);
-	}
+    t_stack *last;
+    
+    if (!stack || !*stack || !(*stack)->next)
+        return;
+    
+    last = get_last(*stack);
+    
+    // Desconectar el último nodo
+    last->prev->next = NULL;
+    
+    // Mover el último al principio
+    last->next = (*stack);
+    last->prev = NULL;
+    (*stack)->prev = last;
+    (*stack) = last;
+    
+    if (flag == 'a' || flag == 'b')
+        ft_printf("rr%c\n", flag);
 }
 
-void	reverse_reverse(t_stack **first, t_stack **second)
+
+void	reverse_reverse(t_stack **a, t_stack **b)
 {
-	if ((*first)->next && (*second)->next)
+	if ((*a)->next && (*b)->next)
 	{
-		reverse_rotate(first, 'n');
-		reverse_rotate(second, 'n');
+		reverse_rotate(a, 'n');
+		reverse_rotate(b, 'n');
 		ft_printf("rrr");
 	}
-	else if ((*first)->next)
-		reverse_rotate(first, 'a');
-	else if ((*second)->next)
-		reverse_rotate(second, 'a');
+	else if ((*a)->next)
+		reverse_rotate(a, 'a');
+	else if ((*b)->next)
+		reverse_rotate(b, 'b');
 }
 
-t_stack	*get_max(t_stack *stack)
-{
-	long	max;
-	t_stack	*max_node;
-
-	if (!stack)
-		return (NULL);
-	max = LONG_MIN;
-	while (stack)
-	{
-		if (stack->nbr > max)
-		{
-			max = stack->nbr;
-			max_node = stack;
-		}
-		stack = stack->next;
-	}
-	return (max_node);
-}

@@ -30,53 +30,75 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+//Errors.c
+int	check_syntax(char **argv);
+int	check_errors(int argc, char **argv);
 
-//Checkers
-int check_syntax(char **argv);
+//Free_memory.c
+void	free_splitted(char **splitted);
+void	free_stack(t_stack **stack);
 
-
-//atol
+//ft_atol.c
 int	is_space(char c);
 long	ft_atol(const char *str);
 
-//main
-int	check_errors(int argc, char **argv);
-void	set_stack(t_stack **a, char **argv,int argc);
+//main.c
+int	check_repeated(long *nbr_list,int	num_count);
+int	is_sorted(long	*nbr_list, int num_count);
+
+//move_stacks.c
+void	a_to_b(t_stack **a, t_stack **b);
+void	prep_push(t_stack **stack, t_stack *top_node, char flag);
+void	b_to_a(t_stack **a, t_stack **b);
+
+//movements_utils.c
+void	rotate_rotate(t_stack **a, t_stack **b);
+void	reverse_rotate(t_stack **stack, char flag);
+void	reverse_reverse(t_stack **a, t_stack **b);
+
+//movements.c
+void	push(t_stack **dst, t_stack **src, char flag);
+t_stack	*get_last(t_stack *stack);
+void	rotate(t_stack **stack, char flag);
+void	swap(t_stack **stack, char flag);
+void	swap_swap(t_stack **a, t_stack **b);
 
 //set_list.c
-long	*set_list(int argc, char **argv, int *num_count);
-int	process_argv(int argc, char **argv, long *list, int *num_count);
-int	count_numbers(int argc, char **argv);
 int	count_in_str(const char *str);
-void	free_splitted(char **splitted);
+int	count_numbers(int argc, char **argv);
 int	process_splitted(char **splitted, long *list, int *index);
+int	process_argv(int argc, char **argv, long *list, int *num_count);
+long	*set_list(int argc, char **argv, int *num_count);
 
-//sort
-void	push_swap(long	*nbr_list, int	num_count, t_stack	**a,t_stack	**b);
-t_stack	*create_stack(long	*nbr_list, int	num_count);
-void	assign_index(t_stack *head);
+//sort_nodes_a.c
+void	set_target_a(t_stack *a, t_stack *b);
+void	get_cost_a(t_stack *a, t_stack *b);
+void	current_index(t_stack *stack);
+void	init_nodes_a(t_stack *a, t_stack *b);
 
-//free
-void	free_stack(t_stack **stack);
-void	free_splitted(char **splitted);
+//sort_nodes_b.c
+void	set_target_b(t_stack *a, t_stack *b);
+void	init_nodes_b(t_stack *a, t_stack *b);
 
-
-//sort_three
+//short_three.c
 void	sort_three(t_stack **a);
 
-//sort_small
-void	sort_small(t_stack **a, t_stack **b, int num_count);
+//sort.c
+void	append_node(t_stack **stack, int num);
+t_stack	*create_stack(long *nbr_list, int num_count);
+void	push_swap(long	*nbr_list, int	num_count, t_stack	**a,t_stack	**b);
 
 
-//MOVEMENTS
-void	swap(t_stack **stack, char flag); // swap a && swap b
-void	swap_swap(t_stack **first, t_stack **second); // ss
-void	push(t_stack **dst, t_stack **src, char flag) // push a && push b
-void	rotate(t_stack **stack, char flag); // rotate a && rotate b
-void	rotate_rotate(t_stack **first, t_stack **second); // rr
-void	reverse_rotate(t_stack **stack, char flag); // reverse rotate
-void	reverse_reverse(t_stack **first, t_stack **second); // rrr
-t_stack	*get_last(t_stack *stack);
+//stack_utils.c
+int	get_stack_len(t_stack *stack);
 t_stack	*get_max(t_stack *stack);
+void	set_cheapest(t_stack *stack);
+t_stack	*get_cheapest(t_stack *stack);
+t_stack	*get_min(t_stack *a);
+
+//turk.c
+int	stack_sorted(t_stack *stack);
+void	sort_everything(t_stack **a, t_stack **b, int num_count);
+
 
 #endif

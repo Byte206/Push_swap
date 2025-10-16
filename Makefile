@@ -24,12 +24,17 @@ SRCS = main.c \
        errors.c \
 	   set_list.c \
 	   ft_atol.c \
-	   set_stack.c \
 	   free_memory.c \
 	   sort.c \
 	   sort_three.c \
 	   movements.c \
 	   movements_utils.c \
+	   sort_nodes_a.c \
+	   sort_nodes_b.c \
+	   turk.c \
+	   stack_utils.c \
+	   move_stacks.c \
+	   stack_utils.c \
 
 
 OBJS = $(SRCS:.c=.o)

@@ -40,35 +40,35 @@ t_stack	*get_last(t_stack *stack)
 	return (stack);
 }
 
-void	rotate(t_stack **stack, char flag)
+void rotate(t_stack **stack, char flag)
 {
-	t_stack	*tmp;
-	t_stack	*last;
-
-	if (!stack || !*stack)
-		return ;
-	tmp = (*stack)->next;
-	if (tmp)
-	{
-		last = get_last(*stack);
-		last->next = (*stack);
-		(*stack)->next = NULL;
-		(*stack)->prev = last;
-		(*stack) = tmp;
-		(*stack)->prev = NULL;
-		if (flag == 'a' || flag == 'b')
-			ft_printf("r%c\n", flag);
-	}
+    t_stack *first;
+    t_stack *last;
+    
+    if (!stack || !*stack || !(*stack)->next)
+        return ;
+    
+    first = *stack;
+    last = get_last(*stack);
+    
+    // El primer nodo se convierte en el último
+    *stack = first->next;        // El segundo nodo es ahora el primero
+    (*stack)->prev = NULL;       // El nuevo primero no tiene prev
+    
+    first->next = NULL;          // El antiguo primero ahora es último
+    first->prev = last;          // Su prev apunta al antiguo último
+    last->next = first;          // El antiguo último apunta al nuevo último
+    
+    if (flag == 'a' || flag == 'b')
+        ft_printf("r%c\n", flag);
 }
 
 void	swap(t_stack **stack, char flag)
 {
 	t_stack	*tmp;
 
-	if (!stack || !*stack)
+	if (!stack || !*stack || !(*stack)->next)
 		return ;
-	if (!(*stack)->next)
-		ft_printf("solo un nodo\n");
 	if ((*stack)->next)
 	{
 		tmp = (*stack)->next;
@@ -88,16 +88,16 @@ void	swap(t_stack **stack, char flag)
 	}
 }
 
-void	swap_swap(t_stack **first, t_stack **second)
+void	swap_swap(t_stack **a, t_stack **b)
 {
-	if ((*first)->next && (*second)->next)
+	if ((*a)->next && (*b)->next)
 	{
-		swap(first, 'n');
-		swap(second, 'n');
+		swap(a, 'n');
+		swap(b, 'n');
 		ft_printf("ss\n");
 	}
-	else if ((*first)->next)
-		swap(first, 'a');
-	else if ((*second)->next)
-		swap(second, 'b');
+	else if ((*a)->next)
+		swap(a, 'a');
+	else if ((*b)->next)
+		swap(b, 'b');
 }
