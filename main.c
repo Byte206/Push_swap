@@ -71,6 +71,7 @@ int	main(int argc, char **argv)
 	if (is_sorted(nbr_list, num_count) == 2)
 	{
 		push_swap(nbr_list, num_count, &a, &b);
+		free(nbr_list);
 		return (0);
 	}
 	else if (is_sorted(nbr_list, num_count) == 1)
